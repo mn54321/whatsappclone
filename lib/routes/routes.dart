@@ -31,7 +31,7 @@ class routes {
 
       default:
         return MaterialPageRoute(
-            builder: (context) => Scaffold(
+            builder: (context) => const Scaffold(
                   body: Center(
                     child: Text('No Page Route Provided'),
                   ),

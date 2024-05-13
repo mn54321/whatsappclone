@@ -6,7 +6,8 @@ import 'package:whatsappclone/userprofile.dart';
 class verifynumber extends StatefulWidget {
   final String smsCodeId;
   final String phoneNumber;
-  verifynumber({super.key, required this.smsCodeId, required this.phoneNumber});
+  const verifynumber(
+      {super.key, required this.smsCodeId, required this.phoneNumber});
   @override
   State<StatefulWidget> createState() {
     return verifynumberState();
@@ -66,7 +67,7 @@ class verifynumberState extends State<verifynumber> {
                     style: TextStyle(
                         color: Colors.black.withOpacity(0.5), height: 1.5),
                     text: 'You have tried to register +447767945663.',
-                    children: [
+                    children: const [
                       TextSpan(
                           text:
                               'wait before requesting on SMS or call with your code.'),
@@ -75,7 +76,7 @@ class verifynumberState extends State<verifynumber> {
                           style: TextStyle(color: Colors.blue)),
                     ])),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -83,7 +84,7 @@ class verifynumberState extends State<verifynumber> {
             child: TextFormField(
               controller: codeController,
               textAlign: TextAlign.center,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   hintText: '- - -   - - -',
                   hintStyle: TextStyle(fontSize: 30)),
               onTap: () {
@@ -91,14 +92,14 @@ class verifynumberState extends State<verifynumber> {
               },
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text(
+          const Text(
             'Enter 6-digit code',
             style: TextStyle(color: Colors.grey),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.only(left: 20),
             child: Row(
@@ -111,7 +112,7 @@ class verifynumberState extends State<verifynumber> {
                   'Resend SMS',
                   style: TextStyle(color: Colors.black.withOpacity(0.5)),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
               ],

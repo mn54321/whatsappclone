@@ -12,7 +12,7 @@ class AuthController {
 
   AuthController({required this.authRepository});
   void sendSmsCode(
-      {required BuildContext context, required String phoneNumber}) {
-    authRepository.sendSmsCode(context: context, phoneNumber: phoneNumber);
+      {required BuildContext context, required String? phoneNumber}) {
+    authRepository.sendSmsCode(context: context, phoneNumber: phoneNumber!);
   }
 }
