@@ -1,36 +1,27 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:whatsappclone/controller/auth_controller.dart';
 import 'package:whatsappclone/userprofile.dart';
 
-class verifynumber extends StatefulWidget {
-  final String smsCodeId;
-  final String phoneNumber;
+class verifynumber extends ConsumerWidget {
+  final String? smsCodeId;
+  final String? phoneNumber;
+
+  void verifysmsCode(BuildContext context, WidgetRef ref, String smsCode) {
+    ref.read(authControllerProvider).verifysmscode(
+        context: context,
+        smsCodeId: smsCodeId!,
+        smsCode: smsCode,
+        mounted: true);
+  }
+
   const verifynumber(
       {super.key, required this.smsCodeId, required this.phoneNumber});
-  @override
-  State<StatefulWidget> createState() {
-    return verifynumberState();
-  }
-}
-
-class verifynumberState extends State<verifynumber> {
-  late TextEditingController codeController;
 
   @override
-  void initState() {
-    codeController = TextEditingController(text: '');
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    codeController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 60,
@@ -66,7 +57,7 @@ class verifynumberState extends State<verifynumber> {
                 text: TextSpan(
                     style: TextStyle(
                         color: Colors.black.withOpacity(0.5), height: 1.5),
-                    text: 'You have tried to register +447767945663.',
+                    text: 'You have tried to register +447577668866.',
                     children: const [
                       TextSpan(
                           text:
@@ -82,13 +73,14 @@ class verifynumberState extends State<verifynumber> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 80),
             child: TextFormField(
-              controller: codeController,
               textAlign: TextAlign.center,
               decoration: const InputDecoration(
                   hintText: '- - -   - - -',
                   hintStyle: TextStyle(fontSize: 30)),
-              onTap: () {
-                null;
+              onChanged: (value) {
+                if (value.length == 6) {
+                  return verifysmsCode(context, ref, value);
+                }
               },
             ),
           ),
@@ -139,15 +131,6 @@ class verifynumberState extends State<verifynumber> {
               ],
             ),
           ),
-          Divider(height: 30),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => userprofile()));
-              },
-              child: Text('next'))
         ],
       ),
     );

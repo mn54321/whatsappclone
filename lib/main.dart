@@ -33,6 +33,7 @@ class whatsapp extends StatefulWidget {
 class whatsappState extends State<whatsapp> {
   @override
   void initState() {
+    super.initState();
     Timer(Duration(seconds: 3), () {
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (BuildContext context) => home()));
