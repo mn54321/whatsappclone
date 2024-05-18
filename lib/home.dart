@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:language_picker/language_picker.dart';
-import 'package:language_picker/language_picker_dropdown.dart';
-import 'package:language_picker/languages.dart';
+// import 'package:language_picker/language_picker.dart';
+// import 'package:language_picker/language_picker_dropdown.dart';
+// import 'package:language_picker/languages.dart';
 import 'package:whatsappclone/loginpage.dart';
 import 'package:whatsappclone/routes/routes.dart';
 

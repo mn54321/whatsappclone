@@ -60,7 +60,7 @@ class loginpageState extends ConsumerState<loginpage> {
         favorite: ['+91'],
         countryListTheme: CountryListThemeData(
           bottomSheetHeight: 800,
-          backgroundColor: Theme.of(context).backgroundColor,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           flagSize: 22,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20)),
@@ -230,13 +230,14 @@ class loginpageState extends ConsumerState<loginpage> {
           backgroundColor: Color.fromARGB(255, 5, 116, 92),
           onPressed: () {
             // _textfield.currentState!.validate();
-            sendsms().Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => verifynumber(
-                          smsCodeId: '',
-                          phoneNumber: '',
-                        )));
+            sendsms();
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (BuildContext context) => verifynumber(
+            //               smsCodeId: '',
+            //               phoneNumber: '',
+            //             )));
           },
           child: Text(
             'Next',
