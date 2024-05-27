@@ -11,7 +11,7 @@ class AuthController {
   final AuthRepository authRepository;
 
   AuthController({required this.authRepository});
-  void verifysmscode({
+  void verifySmscode({
     required BuildContext context,
     required String smsCodeId,
     required String smsCode,
@@ -25,7 +25,7 @@ class AuthController {
   }
 
   void sendSmsCode(
-      {required BuildContext context, required String phoneNumber}) {
+      {required BuildContext context, required String phoneNumber}) async {
     authRepository.sendSmsCode(context: context, phoneNumber: phoneNumber);
   }
 }

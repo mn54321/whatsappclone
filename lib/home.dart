@@ -35,81 +35,84 @@ class homeState extends State<home> {
           ),
         ),
         Expanded(
-            child: Column(
-          children: [
-            Text(
-              "Welcome to the Whatsapp",
-              style: TextStyle(
-                  fontSize: 25,
-                  fontFamily: 'Ro',
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 24, 24, 25)),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                      text: 'Read out ',
-                      style: TextStyle(color: Colors.grey, height: 1.5),
-                      children: [
-                        TextSpan(
-                            text: 'Privacy Policy. ',
-                            style: TextStyle(color: Colors.blue)),
-                        TextSpan(
-                            text: 'Tap "Agree and continue" to accept the '),
-                        TextSpan(
-                            text: 'Terms of Service',
-                            style: TextStyle(color: Colors.blue))
-                      ])),
-            ),
-            SizedBox(height: 30),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.grey.withOpacity(0.1),
+            child: Container(
+          color: Colors.white,
+          child: Column(
+            children: [
+              Text(
+                "Welcome to the Whatsapp",
+                style: TextStyle(
+                    fontSize: 25,
+                    fontFamily: 'Ro',
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 24, 24, 25)),
               ),
-              height: 45,
-              width: 150,
-              child: TextButton(
-                  onPressed: () {
-                    showBottomSheet(context);
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.language,
-                        color: Color(0xFF00A884),
-                      ),
-                      Text(
-                        '  $slectedsnack',
-                        style: TextStyle(color: Color(0xFF00A884)),
-                      ),
-                      Icon(
-                        Icons.arrow_drop_down,
-                        color: Color(0xFF00A884),
-                      )
-                    ],
-                  )),
-            ),
-            SizedBox(height: 190),
-            Container(
-                padding: EdgeInsets.symmetric(horizontal: 30),
-                width: MediaQuery.sizeOf(context).width,
-                child: ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Color(0xFF00A884))),
-                    onPressed: () => navigateToLoginPage(context),
-                    child: Text(
-                      "Agree and Continue",
-                      style: TextStyle(color: Colors.white),
-                    )))
-          ],
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                        text: 'Read out ',
+                        style: TextStyle(color: Colors.grey, height: 1.5),
+                        children: [
+                          TextSpan(
+                              text: 'Privacy Policy. ',
+                              style: TextStyle(color: Colors.blue)),
+                          TextSpan(
+                              text: 'Tap "Agree and continue" to accept the '),
+                          TextSpan(
+                              text: 'Terms of Service',
+                              style: TextStyle(color: Colors.blue))
+                        ])),
+              ),
+              SizedBox(height: 30),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.grey.withOpacity(0.1),
+                ),
+                height: 45,
+                width: 150,
+                child: TextButton(
+                    onPressed: () {
+                      showBottomSheet(context);
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.language,
+                          color: Color(0xFF00A884),
+                        ),
+                        Text(
+                          '  $slectedsnack',
+                          style: TextStyle(color: Color(0xFF00A884)),
+                        ),
+                        Icon(
+                          Icons.arrow_drop_down,
+                          color: Color(0xFF00A884),
+                        )
+                      ],
+                    )),
+              ),
+              SizedBox(height: 190),
+              Container(
+                  padding: EdgeInsets.symmetric(horizontal: 30),
+                  width: MediaQuery.sizeOf(context).width,
+                  child: ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStatePropertyAll(Color(0xFF00A884))),
+                      onPressed: () => navigateToLoginPage(context),
+                      child: Text(
+                        "Agree and Continue",
+                        style: TextStyle(color: Colors.white),
+                      )))
+            ],
+          ),
         ))
       ],
     ));
@@ -190,6 +193,6 @@ class homeState extends State<home> {
 
   navigateToLoginPage(BuildContext context) {
     Navigator.of(context)
-        .pushNamedAndRemoveUntil(routes.login, (route) => false);
+        .pushNamedAndRemoveUntil(Routes.login, (route) => false);
   }
 }

@@ -50,6 +50,7 @@ class DefaultFirebaseOptions {
     projectId: 'whatsapp-clone-dbf0d',
     authDomain: 'whatsapp-clone-dbf0d.firebaseapp.com',
     storageBucket: 'whatsapp-clone-dbf0d.appspot.com',
+    measurementId: 'G-XXPTLFV6FS',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -77,4 +78,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'whatsapp-clone-dbf0d.appspot.com',
     iosBundleId: 'com.example.whatsappclone',
   );
+
 }

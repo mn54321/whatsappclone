@@ -5,20 +5,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsappclone/controller/auth_controller.dart';
 import 'package:whatsappclone/userprofile.dart';
 
-class verifynumber extends ConsumerWidget {
+class Verifynumber extends ConsumerWidget {
+  const Verifynumber(
+      {super.key, required this.smsCodeId, required this.phoneNumber});
+
   final String? smsCodeId;
   final String? phoneNumber;
 
   void verifysmsCode(BuildContext context, WidgetRef ref, String smsCode) {
-    ref.read(authControllerProvider).verifysmscode(
+    ref.read(authControllerProvider).verifySmscode(
         context: context,
-        smsCodeId: smsCodeId!,
+        smsCodeId: smsCodeId ?? "",
         smsCode: smsCode,
         mounted: true);
   }
-
-  const verifynumber(
-      {super.key, required this.smsCodeId, required this.phoneNumber});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -4,24 +4,24 @@ import 'package:whatsappclone/loginpage.dart';
 import 'package:whatsappclone/userprofile.dart';
 import 'package:whatsappclone/verifynumber.dart';
 
-class routes {
-  static const String Welcome = 'welcome';
+class Routes {
+  static const String welcome = 'welcome';
   static const String login = 'login';
   static const String verification = 'verification';
   static const String profile = 'profile';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Welcome:
+      case welcome:
         return MaterialPageRoute(builder: (context) => home());
 
       case login:
         return MaterialPageRoute(builder: (context) => loginpage());
 
       case verification:
-        final Map args = settings.arguments as Map;
+        final Map args = settings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(
-            builder: (context) => verifynumber(
+            builder: (context) => Verifynumber(
                   smsCodeId: args['verficationId'],
                   phoneNumber: args['phone number'],
                 ));

@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dialog_alert/dialog_alert.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -27,14 +25,13 @@ class AuthRepository {
     required bool mounted,
   }) async {
     try {
-      final Credential = PhoneAuthProvider.credential(
+      final credential = PhoneAuthProvider.credential(
           verificationId: smsCodeId, smsCode: smsCode);
-      await auth.signInWithCredential(Credential);
-      if (!mounted) {
+      if (mounted) {
         Navigator.of(context)
-            .pushNamedAndRemoveUntil(routes.profile, (route) => false);
+            .pushNamedAndRemoveUntil(Routes.profile, (route) => false);
       }
-    } on FirebaseAuth catch (e) {
+    } on FirebaseAuthException catch (e) {
       showDialogAlert(
           context: context,
           title: '',
@@ -54,22 +51,22 @@ class AuthRepository {
           verificationFailed: (e) {
             showDialogAlert(
                 context: context,
-                title: 'Faild',
+                title: 'Failed',
                 message: e.toString(),
                 actionButtonTitle: 'ok');
           },
           codeSent: (smsCodeId, resendSmsCodeId) {
             Navigator.of(context).pushNamedAndRemoveUntil(
-                routes.verification, (route) => false, arguments: {
+                Routes.verification, (route) => false, arguments: {
               'phoneNumber': phoneNumber,
               'smsCodeId': smsCodeId
             });
           },
           codeAutoRetrievalTimeout: (String smsCodeId) {});
-    } on FirebaseAuth catch (e) {
+    } on FirebaseAuthException catch (e) {
       showDialogAlert(
           context: context,
-          title: 'OTP',
+          title: 'error',
           message: e.toString(),
           actionButtonTitle: 'ok');
     }

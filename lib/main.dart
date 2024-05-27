@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsappclone/firebase_options.dart';
 import 'package:whatsappclone/home.dart';
@@ -19,7 +18,7 @@ void main() async {
     debugShowCheckedModeBanner: false,
     title: "Whatsapp Clone",
     home: whatsapp(),
-    onGenerateRoute: routes.onGenerateRoute,
+    onGenerateRoute: Routes.onGenerateRoute,
   )));
 }
 
@@ -34,7 +33,7 @@ class whatsappState extends State<whatsapp> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (BuildContext context) => home()));
     });
@@ -42,30 +41,30 @@ class whatsappState extends State<whatsapp> {
 
   @override
   Widget build(BuildContext context) {
-    var _mediaquery = MediaQuery.of(context);
+    MediaQuery.of(context);
     return Scaffold(
         body: Center(
             child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
+        SizedBox(
           height: 80,
           width: 80,
           child: Image.asset("images/whatslight.png"),
         ),
-        SizedBox(height: 300),
-        Center(
+        const SizedBox(height: 300),
+        const Center(
           child: Text(
             "from",
             style: TextStyle(fontSize: 11, color: Colors.grey),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 6,
         ),
-        Text("FACEBOOK",
+        const Text("FACEBOOK",
             style: TextStyle(
-                fontSize: 12, color: const Color.fromARGB(255, 28, 235, 35))),
+                fontSize: 12, color: Color.fromARGB(255, 28, 235, 35))),
       ],
     )));
   }
